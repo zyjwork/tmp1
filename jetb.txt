@@ -1,10 +1,1 @@
-Это микс из нескольких лекарств. За основу был взят файл https://jetbrains.sussy.tech/jetcrack-2.3.jar, скрипты и vmoptions из https://3.jetbra.in/. 
-Так же был сгенерирован ключ активации для всех извеснтых мне на данный момент (2023) IDE Jetbrains и платных плагинов к ним. / 
-This is a mix of several medications. The file https://jetbrains.sussy.tech/jetcrack-2.3.jar, scripts, and vmoptions from https://3.jetbra.in/ were taken as a basis.
-In addition, an activation key was generated for all known (2023) Jetbrains IDEs and their paid plugins.
 
-Для ручной установки добавить в VM Options / To manually install, add to VM Options:
-
---add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
---add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
--javaagent:/path/to/jetcrack.jar
