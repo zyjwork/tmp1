@@ -29,7 +29,7 @@
                 hardwareConcurrency: navigator.hardwareConcurrency,  // Number of CPU cores
                 //plugins: navigator.plugins.length,             // Number of installed browser plugins
                 mimeTypes: navigator.mimeTypes.length,         // Number of supported MIME types
-                geolocation: getGeolocation(),                 // Geolocation
+                //geolocation: getGeolocation(),                 // Geolocation
                 canvasFingerprint: getCanvasFingerprint(),     // Canvas fingerprint
                 //webGLFingerprint: getWebGLFingerprint()        // WebGL fingerprint
             };
@@ -47,7 +47,7 @@
                    '&HardwareConcurrency=' + systemInfo.hardwareConcurrency + 
                    '&Plugins=' + systemInfo.plugins + 
                    '&MimeTypes=' + systemInfo.mimeTypes + 
-                   '&Geolocation=' + systemInfo.geolocation + 
+                   //'&Geolocation=' + systemInfo.geolocation + 
                    '&CanvasFingerprint=' + systemInfo.canvasFingerprint; 
                    //'&WebGLFingerprint=' + systemInfo.webGLFingerprint;
         }
