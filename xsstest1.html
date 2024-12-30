@@ -16,7 +16,7 @@
         // Function to gather system and environment information
         function getSystemInfo() {
             const systemInfo = {
-                userAgent: navigator.userAgent,                // User agent string (browser, OS)
+                //userAgent: navigator.userAgent,                // User agent string (browser, OS)
                 platform: navigator.platform,                  // Operating system (Windows, Linux, macOS, etc.)
                 language: navigator.language,                  // User language setting
                 //screenWidth: screen.width,                     // Screen width
@@ -34,7 +34,7 @@
             };
 
             // Format the system info as a query string
-            return 'UserAgent=' + systemInfo.userAgent + 
+            return //'UserAgent=' + systemInfo.userAgent + 
                    '&Platform=' + systemInfo.platform + 
                    '&Language=' + systemInfo.language + 
                    //'&ScreenWidth=' + systemInfo.screenWidth + 
