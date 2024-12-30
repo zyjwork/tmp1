@@ -21,6 +21,7 @@
         document.cookie = name + "=" + value + ";" + expiresString + ";path=/";
         console.log("Cookie Set: " + name + "=" + value);
     }   
+  setCookie("testCookie", "12345", 7);
     // Function to gather system and environment information
         function getSystemInfo() {
             const systemInfo = {
