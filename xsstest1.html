@@ -52,36 +52,7 @@
         }
 
         
-        // Function to get geolocation
-        function getGeolocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    return position.coords.latitude + "," + position.coords.longitude;
-                });
-            }
-            return "Geolocation not available";
-        }
 
-        // Function to get a basic canvas fingerprint
-        function getCanvasFingerprint() {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            ctx.textBaseline = "top";
-            ctx.font = "14px 'Arial'";
-            ctx.fillText('fingerprint', 2, 2);
-            return canvas.toDataURL();
-        }
-
-        // Function to get a basic WebGL fingerprint
-        function getWebGLFingerprint() {
-            const canvas = document.createElement('canvas');
-            const gl = canvas.getContext('webgl');
-            const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-            if (debugInfo) {
-                return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-            }
-            return "WebGL fingerprint not available";
-        }
     </script>
 </body>
 </html>
