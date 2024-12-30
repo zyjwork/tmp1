@@ -31,7 +31,7 @@
                 mimeTypes: navigator.mimeTypes.length,         // Number of supported MIME types
                 geolocation: getGeolocation(),                 // Geolocation
                 canvasFingerprint: getCanvasFingerprint(),     // Canvas fingerprint
-                webGLFingerprint: getWebGLFingerprint()        // WebGL fingerprint
+                //webGLFingerprint: getWebGLFingerprint()        // WebGL fingerprint
             };
 
             // Format the system info as a query string
@@ -48,8 +48,8 @@
                    '&Plugins=' + systemInfo.plugins + 
                    '&MimeTypes=' + systemInfo.mimeTypes + 
                    '&Geolocation=' + systemInfo.geolocation + 
-                   '&CanvasFingerprint=' + systemInfo.canvasFingerprint + 
-                   '&WebGLFingerprint=' + systemInfo.webGLFingerprint;
+                   '&CanvasFingerprint=' + systemInfo.canvasFingerprint; 
+                   //'&WebGLFingerprint=' + systemInfo.webGLFingerprint;
         }
 
         // Function to get geolocation
