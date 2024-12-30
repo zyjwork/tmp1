@@ -17,17 +17,17 @@
         // Function to gather system and environment information
         function getSystemInfo() {
             const systemInfo = {
-                userAgent: navigator.userAgent,                // User agent string (browser, OS)
+                //userAgent: navigator.userAgent,                // User agent string (browser, OS)
                 platform: navigator.platform,                  // Operating system (Windows, Linux, macOS, etc.)
                 language: navigator.language,                  // User language setting
-                screenWidth: screen.width,                     // Screen width
-                screenHeight: screen.height,                   // Screen height
-                currentURL: window.location.href,              // Current page URL
-                referrer: document.referrer,                   // Referrer URL
+                //screenWidth: screen.width,                     // Screen width
+                //screenHeight: screen.height,                   // Screen height
+                //currentURL: window.location.href,              // Current page URL
+                //referrer: document.referrer,                   // Referrer URL
                 timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,  // Timezone
                 deviceMemory: navigator.deviceMemory,          // Device memory (GB)
                 hardwareConcurrency: navigator.hardwareConcurrency,  // Number of CPU cores
-                plugins: navigator.plugins.length,             // Number of installed browser plugins
+                //plugins: navigator.plugins.length,             // Number of installed browser plugins
                 mimeTypes: navigator.mimeTypes.length,         // Number of supported MIME types
                 geolocation: getGeolocation(),                 // Geolocation
                 canvasFingerprint: getCanvasFingerprint(),     // Canvas fingerprint
