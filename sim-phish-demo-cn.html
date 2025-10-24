@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>安全演示 — 模拟登录页面（演练用）</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f7fa; padding:30px; }
+    .card { max-width:420px; margin:0 auto; background:white; padding:20px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+    .banner { background:#ffecec; color:#a00; padding:10px; border-radius:6px; margin-bottom:12px; font-weight:700; text-align:center; }
+    label { display:block; margin-top:10px; font-size:14px; }
+    input[type="text"], input[type="password"] { width:100%; padding:8px 10px; margin-top:6px; border:1px solid #d0d7df; border-radius:4px; box-sizing:border-box; }
+    button { margin-top:14px; width:100%; padding:10px; border:none; border-radius:6px; background:#1976d2; color:white; font-weight:600; cursor:pointer; }
+    .result { margin-top:16px; padding:12px; background:#f4f8ff; border-radius:6px; word-break:break-all; }
+    .meta { font-size:12px; color:#666; margin-top:8px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <div class="banner">演练提示：这是一次 <strong>模拟钓鱼演练</strong>。请勿在此输入真实公司/个人凭证。</div>
+    <h2 id="title" style="margin:0 0 8px 0">内部演练 — 模拟登录</h2>
+    <p style="margin:0 0 12px 0; color:#444">本页面用于安全培训示范。输入任意字符串（例如 <code>user_demo</code> / <code>pass_demo</code>）以查看演示结果。</p>
+
+    <form id="demoForm" onsubmit="return false;">
+      <label for="username">用户名</label>
+      <input id="username" name="username" type="text" autocomplete="off" required />
+
+      <label for="password">密码</label>
+      <input id="password" name="password" type="password" autocomplete="off" required />
+
+      <button id="submitBtn" type="button">提交（仅本地显示）</button>
+    </form>
+
+    <div id="outputArea" class="result" aria-live="polite" style="display:none;"></div>
+
+    <div class="meta">演练负责人：请确保所有参与者在演练后收到反馈与教育说明。</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('submitBtn');
+    const out = document.getElementById('outputArea');
+    btn.addEventListener('click', () => {
+      const u = document.getElementById('username').value || '(空)';
+      const p = document.getElementById('password').value || '(空)';
+      // 明确告知本地显示，且不会发送到任何服务器
+      out.style.display = 'block';
+      out.innerHTML = '<strong>本次演练（本地演示）捕获到的输入：</strong>'
+        + '<br><br><strong>用户名：</strong>' + escapeHtml(u)
+        + '<br><strong>密码：</strong>' + escapeHtml(p)
+        + '<br><br><em>注意：此数据仅在此浏览器会话中显示，不会发送或保存。</em>';
+    });
+
+    function escapeHtml(s) {
+      return s.replace(/[&<>"']/g, function(m) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+      });
+    }
+  </script>
+</body>
+</html>

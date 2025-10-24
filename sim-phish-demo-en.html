@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Demo — Simulated Login Page (Training)</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f7fa; padding:30px; }
+    .card { max-width:420px; margin:0 auto; background:white; padding:20px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+    .banner { background:#ffecec; color:#a00; padding:10px; border-radius:6px; margin-bottom:12px; font-weight:700; text-align:center; }
+    label { display:block; margin-top:10px; font-size:14px; }
+    input[type="text"], input[type="password"] { width:100%; padding:8px 10px; margin-top:6px; border:1px solid #d0d7df; border-radius:4px; box-sizing:border-box; }
+    button { margin-top:14px; width:100%; padding:10px; border:none; border-radius:6px; background:#1976d2; color:white; font-weight:600; cursor:pointer; }
+    .result { margin-top:16px; padding:12px; background:#f4f8ff; border-radius:6px; word-break:break-all; }
+    .meta { font-size:12px; color:#666; margin-top:8px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <div class="banner">Training Notice: This is a <strong>simulated phishing exercise</strong>. Do NOT enter real personal or company credentials.</div>
+    <h2 id="title" style="margin:0 0 8px 0">Internal Exercise — Simulated Login</h2>
+    <p style="margin:0 0 12px 0; color:#444">This page is for security training demonstration. Enter any strings (for example <code>user_demo</code> / <code>pass_demo</code>) to see the demo result.</p>
+
+    <form id="demoForm" onsubmit="return false;">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" autocomplete="off" required />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="off" required />
+
+      <button id="submitBtn" type="button">Submit (local display only)</button>
+    </form>
+
+    <div id="outputArea" class="result" aria-live="polite" style="display:none;"></div>
+
+    <div class="meta">Exercise owner: please ensure all participants receive feedback and education after the exercise.</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('submitBtn');
+    const out = document.getElementById('outputArea');
+    btn.addEventListener('click', () => {
+      const u = document.getElementById('username').value || '(empty)';
+      const p = document.getElementById('password').value || '(empty)';
+      // Clearly state this is displayed locally and will not be sent to any server
+      out.style.display = 'block';
+      out.innerHTML = '<strong>Captured input for this exercise (local demo):</strong>'
+        + '<br><br><strong>Username:</strong> ' + escapeHtml(u)
+        + '<br><strong>Password:</strong> ' + escapeHtml(p)
+        + '<br><br><em>Note: this data is shown only in this browser session and will not be transmitted or stored.</em>';
+    });
+
+    function escapeHtml(s) {
+      return s.replace(/[&<>"']/g, function(m) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+      });
+    }
+  </script>
+</body>
+</html>
